@@ -1,0 +1,34 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "ece0473bb30093729a508f00362d1280feb957e4c0e97ee8a95fe670c72d8165d4834d328d8333dfee4611db272e8160746a8f5186639cd9b14303e4408b649492967bcfcc5887c04ac7a705ce218dd38da8cbf1057ce3f013910fcd246bd3c18751e6ed557468db97d0da5d927ead78a25f5cc56df296e72756a66f9fbb07288540d80414195ad0fb06ded5baafbd7f60bd7429c567cbc49bdb3afff90bef337d4dfdba815c62a2ae51ccb6e6fa83d7673f3758578741481df806877dcdaa29e956340a1e6073ac61fed527965600f50f4f062c76ea32fc34d45fbcabfe4849ffb278f13939cb23ebdea9958a9895cd709f8f3613b1476af62c57039cd47489",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "mysql": "mysql://root:ariel8*lick@localhost:3306/triplog"
+}
