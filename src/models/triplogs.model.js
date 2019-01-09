@@ -5,48 +5,36 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const users = sequelizeClient.define('users', {
+  const triplogs = sequelizeClient.define('triplogs', {
     updatedBy: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        notEmpty: true,
-        isEmail: true,
-        len: [1,255]
-      }
-    },
-    password: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: true,
-        len: [1,255]
+        len: [1, 1000]
       }
     },
-    firstName: {
+    tripId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    logDate: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    imageUrl: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
-        len: [1,255]
-      }
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [1,255]
-      }
-    },
-    avatarUrl: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [1,255]
+        len: [1, 255]
       }
     }
   }, {
@@ -58,10 +46,10 @@ module.exports = function (app) {
   });
 
   // eslint-disable-next-line no-unused-vars
-  users.associate = function (models) {
+  triplogs.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return users;
+  return triplogs;
 };

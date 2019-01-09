@@ -5,7 +5,7 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const trips = sequelizeClient.define('trip', {
+  const trips = sequelizeClient.define('trips', {
     updatedBy: {
       type: DataTypes.INTEGER,
       allowNull: true
