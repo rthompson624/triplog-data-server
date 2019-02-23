@@ -1,7 +1,14 @@
 /* eslint-disable no-console */
 const logger = require('./logger');
 const app = require('./app');
-const port = app.get('port');
+let portVar;
+if (process.env.NODE_ENV === 'production') {
+  // Heroku requires server to use port given by PORT environment variable
+  portVar = process.env.PORT;
+} else {
+  portVar = app.get('port');
+}
+const port = portVar;
 const server = app.listen(port);
 
 process.on('unhandledRejection', (reason, p) =>
