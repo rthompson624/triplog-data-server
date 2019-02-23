@@ -38,7 +38,12 @@ const operatorsAliases = {
 };
 
 module.exports = function (app) {
-  const connectionString = app.get('mysql');
+  let connectionString;
+  if (process.env.NODE_ENV === 'production') {
+    connectionString = process.env.JAWSDB_URL;
+  } else {
+    connectionString = app.get('mysql');
+  }
   const sequelize = new Sequelize(connectionString, {
     dialect: 'mysql',
     logging: false,
