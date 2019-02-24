@@ -2,7 +2,7 @@
 const logger = require('./logger');
 const app = require('./app');
 let portVar;
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV && (process.env.NODE_ENV === 'staging' || process.env.NODE_ENV === 'production')) {
   // Heroku requires server to use port given by PORT environment variable
   portVar = process.env.PORT;
 } else {
