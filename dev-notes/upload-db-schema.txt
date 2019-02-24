@@ -1,0 +1,19 @@
+*************
+
+Staging
+
+Connection String:
+mysql://hbwgywkrei2ijxxb:cxwcip65do2mb2zb@pfw0ltdr46khxib3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/xe9tfkojl8pf3v8v
+
+Host: pfw0ltdr46khxib3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+User: hbwgywkrei2ijxxb
+Password: cxwcip65do2mb2zb
+Database: xe9tfkojl8pf3v8v
+SQL File: ../database/schema/0001-db-create.sql
+
+mysql -h pfw0ltdr46khxib3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -u hbwgywkrei2ijxxb -pcxwcip65do2mb2zb xe9tfkojl8pf3v8v < ../database/schema/0001-db-create.sql
+
+*************
+
+Production
+
