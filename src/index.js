@@ -1,12 +1,20 @@
+require('dotenv').config();
+if (!process.env.NODE_ENV) {
+  console.log('NODE_ENV environment variable not defined!');
+} else {
+  console.log('Environment: ' + process.env.NODE_ENV);
+}
+
 /* eslint-disable no-console */
 const logger = require('./logger');
 const app = require('./app');
 let portVar;
-if (process.env.NODE_ENV && (process.env.NODE_ENV === 'staging' || process.env.NODE_ENV === 'production')) {
-  // Heroku requires server to use port given by PORT environment variable
+if (process.env.NODE_ENV === 'staging' || process.env.NODE_ENV === 'production') {
   portVar = process.env.PORT;
+  console.log('Heroku environment detected. Using port ' + portVar);
 } else {
   portVar = app.get('port');
+  console.log('Local environment detected. Using port ' + portVar);
 }
 const port = portVar;
 const server = app.listen(port);

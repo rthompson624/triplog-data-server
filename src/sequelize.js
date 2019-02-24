@@ -39,18 +39,13 @@ const operatorsAliases = {
 
 module.exports = function (app) {
   let connectionString;
-  if (process.env.NODE_ENV) {
-    if (process.env.NODE_ENV === 'staging') {
-      console.log('Connecting to staging database...');
-      connectionString = process.env.JAWSDB_URL;
-    } else if (process.env.NODE_ENV === 'production') {
-      console.log('Connecting to production database...');
-      connectionString = process.env.JAWSDB_URL;
-    }
+  if (process.env.NODE_ENV === 'staging' || process.env.NODE_ENV === 'production') {
+    connectionString = process.env.JAWSDB_URL;
   } else {
-    console.log('Connecting to local database...');
     connectionString = app.get('mysql');
   }
+  console.log('Connecting to database...');
+  console.log(connectionString);
   const sequelize = new Sequelize(connectionString, {
     dialect: 'mysql',
     logging: false,
