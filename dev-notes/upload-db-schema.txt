@@ -1,6 +1,6 @@
 *************
 
-Staging
+Staging (serene-basin-31965)
 
 Connection String:
 mysql://hbwgywkrei2ijxxb:cxwcip65do2mb2zb@pfw0ltdr46khxib3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/xe9tfkojl8pf3v8v
